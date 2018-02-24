@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "416650741935",
+    "firebase_url": "https://womenapp-25554.firebaseio.com",
+    "project_id": "womenapp-25554",
+    "storage_bucket": "womenapp-25554.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416650741935:android:6629b8fe311bc584",
+        "android_client_info": {
+          "package_name": "com.dsmp.android.womenapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416650741935-64tegjoe6l257l8u394ljr8nmev2fm6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dsmp.android.womenapp",
+            "certificate_hash": "3e469b22be651b512ea403e99744e3b55ac61418"
+          }
+        },
+        {
+          "client_id": "416650741935-dditbgp7i6mlklbkljktlcm76o4ieeq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0IqNoJ5pd4LwOY5GS13dAEfYjGSjsBW8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416650741935-dditbgp7i6mlklbkljktlcm76o4ieeq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
