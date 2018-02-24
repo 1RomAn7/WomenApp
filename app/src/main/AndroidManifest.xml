@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AdvanceSearchActivity"></activity>
+        <activity android:name=".AllServices"></activity>>
         <activity android:name=".AdvanceSearchResultActivity"></activity>
     </application>
 

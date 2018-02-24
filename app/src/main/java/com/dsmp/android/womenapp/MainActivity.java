@@ -27,19 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonAllService = findViewById(R.id.buttonAllService);
         buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);
 
-
         buttonAllService.setOnClickListener(this);
 
-
-
         buttonAdvanceSearch.setOnClickListener(this);
-
-
-
-
-
-
-
     }
 
 
@@ -62,10 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
 
         }
-
-
-
-
 
     }
 

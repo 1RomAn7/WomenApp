@@ -6,7 +6,7 @@
     <string name="all_services">सभी सेवाएं</string>
     <string name="caste">जाति</string>
     <string name="enter_service_name">सेवा नाम दर्ज करें</string>
-    <string name="button_Search">खोज</string>
     <string name="state">राज्य</string>
     <string name="women_services">महिला सेवाएं</string>
+    <string name="search">खोज</string>
 </resources>
