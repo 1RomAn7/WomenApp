@@ -1,12 +1,11 @@
 <resources>
-    <string name="app_name">WomenApp</string>
+    <string name="app_name" translatable="false">WomenApp</string>
     <string name="women_services">Women Services</string>
     <string name="all_services">All Services</string>
     <string name="advance_search">Advance Search</string>
     <string name="button_Search">Search</string>
     <string name="enter_service_name">Enter Service name</string>
     <string name="age">Age</string>
-    <string name="state">State</string>
-
     <string name="caste">Caste</string>
+    <string name="state">State</string>
 </resources>

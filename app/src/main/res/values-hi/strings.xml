@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WomenApp</string>
+    <string name="advance_search">उन्नत खोज</string>
+    <string name="age">आयु</string>
+    <string name="all_services">सभी सेवाएं</string>
+    <string name="caste">जाति</string>
+    <string name="enter_service_name">सेवा नाम दर्ज करें</string>
+    <string name="button_Search">खोज</string>
+    <string name="state">राज्य</string>
+    <string name="women_services">महिला सेवाएं</string>
+</resources>

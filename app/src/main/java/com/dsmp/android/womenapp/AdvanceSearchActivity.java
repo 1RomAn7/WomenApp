@@ -31,7 +31,7 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
 
-        Intent  intent=new Intent(this,AdvanceSearchActivity.class);
+        Intent  intent=new Intent(this,AdvanceSearchResultActivity.class);
         startActivity(intent);
 
     }
