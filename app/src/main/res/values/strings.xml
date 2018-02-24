@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">WomenApp</string>
+    <string name="women_services">Women Services</string>
+    <string name="all_services">All Services</string>
+    <string name="advance_search">Advance Search</string>
 </resources>
