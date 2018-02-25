@@ -2,9 +2,12 @@ package com.dsmp.android.womenapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 
 public class AllServices extends AppCompatActivity {
 
+
+    ListView listViewSevice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

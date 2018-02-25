@@ -7,33 +7,18 @@
     tools:context="com.dsmp.android.womenapp.AdvanceSearchActivity">
 
     <EditText
-        android:id="@+id/etxServiceName"
-        android:layout_width="226dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="@string/enter_service_name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/etxAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/etxServiceName"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="@+id/etxServiceName"
-        app:layout_constraintTop_toBottomOf="@+id/etxServiceName" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etxState"
@@ -58,6 +43,7 @@
         android:ems="10"
         android:hint="@string/caste"
         android:inputType="textPersonName"
+        android:singleLine="false"
         app:layout_constraintEnd_toEndOf="@+id/etxState"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/etxState"
@@ -67,7 +53,7 @@
         android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="76dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/search"
@@ -75,4 +61,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

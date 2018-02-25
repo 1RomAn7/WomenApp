@@ -10,19 +10,19 @@ import android.widget.EditText;
 public class AdvanceSearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button  buttonSearch;
-    EditText   etxServiceName,etxAge,etxState,etxCaste;
+    EditText  etxAge,etxState,etxCaste;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advance_search);
 
 
-        etxServiceName=(EditText)findViewById(R.id.etxServiceName);
-        etxAge=(EditText)findViewById(R.id.etxAge);
-        etxState=(EditText)findViewById(R.id.etxState);
-        etxCaste=(EditText)findViewById(R.id.etxCaste);
 
-        buttonSearch = (Button) findViewById(R.id.buttonSearch);
+        etxAge= findViewById(R.id.etxAge);
+        etxState= findViewById(R.id.etxState);
+        etxCaste= findViewById(R.id.etxCaste);
+
+        buttonSearch = findViewById(R.id.buttonSearch);
 
 
         buttonSearch.setOnClickListener(this);

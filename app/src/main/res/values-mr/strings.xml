@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WomenApp</string>
-    <string name="advance_search">\nप्रगत शोध</string>
+    <string name="advance_search">प्रगत शोध</string>
     <string name="age">वय</string>
-    <string name="all_services">सर्व सेवा\n</string>
+    <string name="all_services">सर्व सेवा</string>
     <string name="caste">जात</string>
     <string name="search">शोध</string>
     <string name="state">राज्य</string>
     <string name="women_services">महिला सेवा</string>
-    
+
 </resources>
