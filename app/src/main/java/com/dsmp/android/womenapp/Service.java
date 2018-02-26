@@ -1,10 +1,13 @@
 package com.dsmp.android.womenapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by vipul on 2/20/2018.
  */
 
-public class Service {
+public class Service implements Parcelable {
 
     private String id;
     private String serviceName;
@@ -22,6 +25,15 @@ public class Service {
         this.serviceCaste = serviceCaste;
     }
 
+    private Service(Parcel in){
+
+        serviceName=in.readString();
+        serviceState=in.readString();
+        serviceMinAge=in.readString();
+        serviceMaxAge=in.readString();
+        serviceCaste=in.readString();
+
+    }
     public String getId()
     {
         return id;
@@ -75,5 +87,35 @@ public class Service {
 
         this.serviceCaste = serviceCaste;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+            parcel.writeString(serviceName);
+            parcel.writeString(serviceCaste);
+            parcel.writeString(serviceMaxAge);
+            parcel.writeString(serviceMinAge);
+            parcel.writeString(serviceState);
+    }
+
+    public static final Parcelable.Creator<Service> CREATOR = new Parcelable.Creator<Service>(){
+
+        public Service createFromParcel(Parcel in) {
+            return new Service(in);
+        }
+
+        public Service[] newArray(int size) {
+            return new Service[size];
+
+        }
+
+
+
+    };
 }
 

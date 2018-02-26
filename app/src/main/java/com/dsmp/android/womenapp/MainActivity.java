@@ -1,6 +1,7 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,14 +47,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonAdvanceSearch.setOnClickListener(this);
     }
 
-    @Override
-    protected void onStart() {
+
+    /*protected void onStart() {
         super.onStart();
         sChildRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot postSnapShot:dataSnapshot .getChildren()) {
+                for (DataSnapshot postSnapShot:dataSnapshot.getChildren()) {
 
 
                     Service service=postSnapShot.getValue(Service.class);
@@ -73,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-    }
-
+    }*/
     @Override
     public void onClick(View view) {
 
@@ -82,8 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
 
             Intent intent =new Intent(this,AllServices.class);
-            startActivity(intent);
 
+            //intent.putExtra("Contact_list", (Parcelable) serviceList);
+            startActivity(intent);
         }
 
         if(buttonAdvanceSearch.getId()==view.getId())
