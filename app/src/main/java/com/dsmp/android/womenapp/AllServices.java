@@ -21,7 +21,7 @@ public class AllServices extends AppCompatActivity {
 
     DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
 
-    DatabaseReference sChildRef = sRootRef.child("Services");
+    DatabaseReference sChildRef = sRootRef.child("");
     //ArrayList<Service> myList = getIntent().getParcelableExtra("Contact_list");
     ListView listViewSevice;
 
@@ -43,7 +43,7 @@ public class AllServices extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
+                serviceList.clear();
                 for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
 
 
