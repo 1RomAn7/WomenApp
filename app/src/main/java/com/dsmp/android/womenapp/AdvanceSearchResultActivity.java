@@ -2,9 +2,10 @@ package com.dsmp.android.womenapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
-public class AdvanceSearchResultActivity extends AppCompatActivity {
+public class AdvanceSearchResultActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static  String getAge="";
     public static  String getCaste="";
@@ -15,6 +16,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advance_search_result);
 
+
         etxStae=findViewById(R.id.etxState);
         etxCaste=findViewById(R.id.etxCaste);
         etxAge=findViewById(R.id.etxAge);
@@ -22,6 +24,11 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
         etxAge.setText(getAge);
         etxCaste.setText(getCaste);
         etxStae.setText(getState);
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 }

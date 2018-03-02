@@ -1,17 +1,13 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    Button buttonAllService;
+    Button buttonAllService,buttonLogin;
     Button buttonAdvanceSearch;
     List<Service> serviceList ;
 
@@ -39,12 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonAllService = findViewById(R.id.buttonAllService);
         buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);
-
+        buttonLogin=findViewById(R.id.etxPassword);
         serviceList=new ArrayList<>();
 
         buttonAllService.setOnClickListener(this);
-
+        buttonLogin.setOnClickListener(this);
         buttonAdvanceSearch.setOnClickListener(this);
+
     }
 
 
@@ -92,6 +89,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Intent intent;
             intent = new Intent(this,AdvanceSearchActivity.class);
+            startActivity(intent);
+
+        }
+        if(buttonLogin.getId()==view.getId())
+        {
+
+            Intent intent =new Intent(this,LoginActivity.class);
+
             startActivity(intent);
 
         }
