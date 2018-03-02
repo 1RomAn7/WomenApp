@@ -32,7 +32,16 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
         Intent  intent=new Intent(this,AdvanceSearchResultActivity.class);
-        startActivity(intent);
 
+        String age= String.valueOf(etxAge.getText());
+       // int ageI= age;
+        AdvanceSearchResultActivity.getAge=age;
+
+        String  caste =etxCaste.getText().toString();
+        AdvanceSearchResultActivity.getCaste=caste;
+
+        AdvanceSearchResultActivity.getState=etxState.getText().toString();
+
+        startActivity(intent);
     }
 }
