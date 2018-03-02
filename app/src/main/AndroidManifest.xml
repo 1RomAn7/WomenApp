@@ -23,10 +23,11 @@
         </activity>
         <activity android:name=".AdvanceSearchActivity" />
         <activity android:name=".AllServices" />
-        >
+
         <activity android:name=".AdvanceSearchResultActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistorNewUser" />
+
         <activity android:name=".AddServices"></activity>
     </application>
 

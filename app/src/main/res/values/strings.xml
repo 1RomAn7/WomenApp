@@ -34,8 +34,8 @@
     <string name="service_info">Service Info</string>
     <string name="minimun_age">Minimun Age</string>
     <string name="maximum_age">Maximum Age</string>
-    <string name="caste">Caste</string>
-    <string name="state">State</string>
+    <string name="Login_caste">Caste</string>
+    <string name="Login_state">State</string>
     <string name="add_service">Add Service</string>
 
 
