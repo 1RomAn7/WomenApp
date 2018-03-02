@@ -11,28 +11,41 @@ public class Service implements Parcelable {
 
     private String id;
     private String serviceName;
+    private String serviceInfo;
     private String serviceState;
     private String serviceMinAge;
     private String serviceMaxAge;
     private String serviceCaste;
 
-    public Service(String id, String serviceName, String serviceState, String serviceMinAge, String serviceMaxAge, String serviceCaste) {
+    public Service(String id, String serviceName,String serviceinfo, String serviceState, String serviceMinAge, String serviceMaxAge, String serviceCaste) {
         this.id = id;
         this.serviceName = serviceName;
+        this.serviceInfo= serviceinfo;
         this.serviceState = serviceState;
         this.serviceMinAge = serviceMinAge;
         this.serviceMaxAge = serviceMaxAge;
         this.serviceCaste = serviceCaste;
     }
 
+
+
     private Service(Parcel in){
 
         serviceName=in.readString();
         serviceState=in.readString();
+        serviceInfo=in.readString();
         serviceMinAge=in.readString();
         serviceMaxAge=in.readString();
         serviceCaste=in.readString();
 
+
+    }
+    public String getServiceInfo() {
+        return serviceInfo;
+    }
+
+    public void setServiceInfo(String serviceInfo) {
+        this.serviceInfo = serviceInfo;
     }
     public String getId()
     {

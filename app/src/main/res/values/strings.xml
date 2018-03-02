@@ -23,12 +23,20 @@
         completions."
     </string>
 
-
+    <!--String Related to LoginActivity -->
     <string name="new_user_sign_up">New User? Sign UP</string>
     <string name="login">Login</string>
     <string name="Login_textView">LOGIN</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="add_service_information">Add Service Information</string>
+    <string name="service_name">Service Name</string>
+    <string name="service_info">Service Info</string>
+    <string name="minimun_age">Minimun Age</string>
+    <string name="maximum_age">Maximum Age</string>
+    <string name="caste">Caste</string>
+    <string name="state">State</string>
+    <string name="add_service">Add Service</string>
 
 
 </resources>
