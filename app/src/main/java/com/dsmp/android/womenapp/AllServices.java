@@ -17,7 +17,7 @@ import java.util.List;
 public class AllServices extends AppCompatActivity {
 
 
-    List<String> serviceList;
+    List<Service> serviceList;
 
     DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -30,7 +30,7 @@ public class AllServices extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_services);
 
-        serviceList = new ArrayList<>();
+        serviceList = new ArrayList<Service>();
         listViewSevice = findViewById(R.id.listViewService);
 
 
@@ -47,8 +47,8 @@ public class AllServices extends AppCompatActivity {
                 for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
 
 
-                    //  Service service = postSnapShot.getValue(Service.class);
-                    String service = postSnapShot.getValue(String.class);
+                     Service service = postSnapShot.getValue(Service.class);
+                   // String service = postSnapShot.getValue(String.class);
                     serviceList.add(service);
 
                 }
@@ -69,7 +69,7 @@ public class AllServices extends AppCompatActivity {
 
     private void initialize() {
         //serviceList.add();
-        ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,serviceList);
+        ArrayAdapter<Service> adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,serviceList);
         listViewSevice.setAdapter(adapter);
     }
 }
