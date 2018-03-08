@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -16,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllServices extends AppCompatActivity implements View.OnClickListener {
+public class AllServices extends AppCompatActivity implements  AdapterView.OnItemClickListener {
 
     public static final String serviceName="com.dsmp.android.womenapp.serviceName";
     List<Service> serviceList;
@@ -37,7 +38,7 @@ public class AllServices extends AppCompatActivity implements View.OnClickListen
         listViewSevice = findViewById(R.id.listViewService);
 
 
-        listViewSevice.setOnClickListener(this);
+        listViewSevice.setOnItemClickListener(this);
 
     }
 
@@ -84,13 +85,14 @@ public class AllServices extends AppCompatActivity implements View.OnClickListen
 
 
 
+
+
     @Override
-    public void onClick(View view) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Intent intent =new Intent(this,ServiceDetailsActivity.class);
         intent.putExtra(serviceName, String.valueOf(serviceNameList));
         startActivity(intent);
-
 
     }
 }
