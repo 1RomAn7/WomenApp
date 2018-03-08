@@ -34,6 +34,7 @@ public class Service implements Parcelable {
 
     private Service(Parcel in){
 
+        id=in.readString();
         serviceName=in.readString();
         serviceState=in.readString();
         serviceInfo=in.readString();
@@ -112,6 +113,7 @@ public class Service implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
 
+            parcel.writeString(id);
             parcel.writeString(serviceName);
             parcel.writeString(serviceCaste);
             parcel.writeString(serviceMaxAge);

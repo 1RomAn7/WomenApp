@@ -1,6 +1,7 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,8 @@ import java.util.List;
 
 public class AllServices extends AppCompatActivity implements  AdapterView.OnItemClickListener {
 
-    public static final String serviceName="com.dsmp.android.womenapp.serviceName";
+
+    Service service;
     List<Service> serviceList;
 
     List<String> serviceNameList;
@@ -54,7 +56,7 @@ public class AllServices extends AppCompatActivity implements  AdapterView.OnIte
                 for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
 
 
-                     Service service = postSnapShot.getValue(Service.class);
+                     service = postSnapShot.getValue(Service.class);
                    // String service = postSnapShot.getValue(String.class);
                     serviceList.add(service);
                     serviceNameList.add(service.getServiceName());
@@ -91,7 +93,7 @@ public class AllServices extends AppCompatActivity implements  AdapterView.OnIte
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Intent intent =new Intent(this,ServiceDetailsActivity.class);
-        intent.putExtra(serviceName, String.valueOf(serviceNameList));
+        intent.putExtra(ServiceDetailsActivity.serviceName, service);
         startActivity(intent);
 
     }
