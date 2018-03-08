@@ -18,12 +18,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button buttonAllService,buttonLogin;
     Button buttonAdvanceSearch;
-    List<Service> serviceList ;
-
-    DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
-
-    DatabaseReference sChildRef =sRootRef.child("Services");
-
 
 
 
@@ -36,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonAllService = findViewById(R.id.buttonAllService);
         buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);
         buttonLogin=findViewById(R.id.etxPassword);
-        serviceList=new ArrayList<>();
 
         buttonAllService.setOnClickListener(this);
         buttonLogin.setOnClickListener(this);

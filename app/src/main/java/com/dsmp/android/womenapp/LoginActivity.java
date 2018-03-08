@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
 
     Button buttonLogin;
-    TextView txtLogin,txtSignUp;
+    TextView txtLogin;
     EditText etxPassowrd,etxEmail;
     FirebaseAuth firebaseAuth ;
     @Override
@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         txtLogin= findViewById(R.id.txtLogin);
-        txtSignUp=findViewById(R.id.txtSignUp);
+
 
         buttonLogin =findViewById(R.id.buttonLogin);
 
@@ -36,16 +36,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         firebaseAuth=FirebaseAuth.getInstance();
         buttonLogin.setOnClickListener(this);
-        txtSignUp.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
-        if(txtSignUp.getId()==view.getId()) {
-
-            Intent intent =new Intent(this,RegistorNewUser.class);
-            startActivity(intent);
-        }
 
         if(buttonLogin.getId()==view.getId()) {
 
@@ -55,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void validate() {
+
+
         String Email=etxEmail.getText().toString();
         String password=etxPassowrd.getText().toString();
         firebaseAuth.signInWithEmailAndPassword(Email,password).addOnCompleteListener(this);
@@ -70,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             startActivity(intent);
 
-            //Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
 
         }else{
             Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();

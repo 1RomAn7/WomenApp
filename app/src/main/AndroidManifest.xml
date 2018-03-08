@@ -26,7 +26,6 @@
 
         <activity android:name=".AdvanceSearchResultActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegistorNewUser" />
 
         <activity android:name=".AddServices"></activity>
     </application>

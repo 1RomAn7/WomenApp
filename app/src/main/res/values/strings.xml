@@ -23,9 +23,10 @@
         completions."
     </string>
 
+
     <!--String Related to LoginActivity -->
     <string name="new_user_sign_up">New User? Sign UP</string>
-    <string name="login">Login</string>
+    <string name="login">Log in</string>
     <string name="Login_textView">LOGIN</string>
     <string name="password">Password</string>
     <string name="email">Email</string>

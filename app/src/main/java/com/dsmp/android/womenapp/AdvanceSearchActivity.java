@@ -42,9 +42,11 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
 
         String state =etxState.getText().toString();
 
-        //AdvanceSearchResultActivity.getAge=age;
-      //  AdvanceSearchResultActivity.getState=state;
-       // AdvanceSearchResultActivity.getCaste=caste;
+        /*
+      AdvanceSearchResultActivity.getAge=age;
+      AdvanceSearchResultActivity.getState=state;
+      AdvanceSearchResultActivity.getCaste=caste;
+      */
         intent.putExtra(Age,age);
         startActivity(intent);
 
