@@ -27,7 +27,10 @@ public class Service implements Parcelable {
         this.serviceCaste = serviceCaste;
     }
 
+    public Service() {
 
+
+    }
 
     private Service(Parcel in){
 
