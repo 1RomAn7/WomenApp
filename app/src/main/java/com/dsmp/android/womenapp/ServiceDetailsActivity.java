@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class ServiceDetailsActivity extends AppCompatActivity {
 
+    Service service;
     TextView txtServiceName,txtServiceCaste,txtServiceState,txtServiceAge,txtServiceInformation;
     TextView nameResult,stateResult,casteResult,ageResult,informationResult;
 
@@ -26,13 +27,26 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
 
         Intent intent=getIntent();
-        Service service=intent.getParcelableExtra(serviceName);
+        service=intent.getParcelableExtra(serviceName);
 
         nameResult.setText(service.getServiceName());
         stateResult.setText(service.getServiceState());
         casteResult.setText(service.getServiceCaste());
         ageResult.setText(service.getServiceMaxAge());
         informationResult.setText(service.getServiceInfo());
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        nameResult.setText("");
+        stateResult.setText("");
+        casteResult.setText("");
+        ageResult.setText("");
+        informationResult.setText("");
 
 
     }

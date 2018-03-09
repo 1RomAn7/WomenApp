@@ -14,7 +14,8 @@
         android:layout_marginTop="72dp"
         android:text="Service Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/txtServiceState"
@@ -24,7 +25,8 @@
         android:layout_marginTop="32dp"
         android:text="Service State"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtserviceName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtserviceName"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/nameResult"
@@ -60,7 +62,8 @@
         android:layout_marginTop="32dp"
         android:text="Service Caste"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtServiceState" />
+        app:layout_constraintTop_toBottomOf="@+id/txtServiceState"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/casteResult"
@@ -96,7 +99,8 @@
         android:layout_marginTop="32dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/casteResult" />
+        app:layout_constraintTop_toBottomOf="@+id/casteResult"
+        android:layout_marginRight="136dp" />
 
     <TextView
         android:id="@+id/txtServiceInformation"
@@ -121,7 +125,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="136dp"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:text="Textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageResult"

@@ -48,6 +48,7 @@ public class Service implements Parcelable {
         return serviceInfo;
     }
 
+
     public void setServiceInfo(String serviceInfo) {
         this.serviceInfo = serviceInfo;
     }
@@ -119,6 +120,7 @@ public class Service implements Parcelable {
             parcel.writeString(serviceMaxAge);
             parcel.writeString(serviceMinAge);
             parcel.writeString(serviceState);
+            parcel.writeString(serviceInfo);
     }
 
     public static final Parcelable.Creator<Service> CREATOR = new Parcelable.Creator<Service>(){
