@@ -1,6 +1,7 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,15 @@ import java.util.List;
 
 public class AllServices extends AppCompatActivity  {
 
+    String serviceNameColumn="serviceName"
+            ,serviceInfoColumn="serviceInfo"
+            ,serviceAgeColumn="serviceAge"
+            ,serviceIdColumn="serviceId"
+            ,serviceStateColumn="serviceState"
+            ,serviceCasteColumn="serviceCaste";
+
+
+    public String serviceIdExtra;
 
     String serviceName,serviceInfo,serviceAge,serviceid,serviceState,serviceCaste;
 
@@ -42,12 +52,39 @@ public class AllServices extends AppCompatActivity  {
         serviceList = new ArrayList<Service>();
         listViewService = findViewById(R.id.listViewService);
 
+        initialize();
+
+        listViewService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
+                String getServiceName = (String) adapterView.getItemAtPosition(i);
 
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT * FROM Services WHERE "+serviceNameColumn+"=";
+                query+="\""+getServiceName+"\"";
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                     serviceIdExtra=cursor.getString(0);
+
+                }
+
+
+                Intent intent =new Intent(AllServices.this,ServiceDetailsActivity.class);
+                intent.putExtra(ServiceDetailsActivity.serviceIdExtraName,serviceIdExtra);
+                startActivity(intent);
+            }
+        });
 
 
     }
+
+
 
 
     protected void onStart() {
@@ -64,12 +101,12 @@ public class AllServices extends AppCompatActivity  {
                      service = postSnapShot.getValue(Service.class);
                    // String service = postSnapShot.getValue(String.class);
 
-                    serviceNameList.add(service.getServiceName()+"\n"+service.getServiceInfo());
+                    serviceNameList.add(service.getServiceName());
 
 
                     serviceName=service.getServiceName();
                     serviceCaste=service.getServiceCaste();
-                    serviceAge=service.getServiceMaxAge();
+                    serviceAge=service.getServiceMinAge();
                     serviceState=service.getServiceState();
                     serviceid=service.getId();
                     serviceInfo=service.getServiceInfo();
@@ -77,13 +114,13 @@ public class AllServices extends AppCompatActivity  {
 
                     SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
-                    String query = "CREATE TABLE IF NOT EXISTS Services(serviceId VARCHAR PRIMARY KEY ,serviceName VARCHAR ,serviceCaste VARCHAR )";
+                    String query = "CREATE TABLE IF NOT EXISTS Services("+serviceIdColumn+" VARCHAR PRIMARY KEY ,"+serviceNameColumn+" VARCHAR ,"+serviceCasteColumn+" VARCHAR ,"+serviceStateColumn+" VARCHAR ,"+serviceInfoColumn+" VARCHAR ,"+serviceAgeColumn+" VARCHAR)";
 
 
                     database.execSQL(query);
 
-                    String insert = "INSERT OR REPLACE INTO Services(serviceID,serviceName,serviceCaste) ";
-                    insert+="VALUES('"+serviceid+"','"+serviceName+"','"+serviceInfo+"')";
+                    String insert = "INSERT OR REPLACE INTO Services("+serviceIdColumn+","+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+")";
+                    insert+=" VALUES('"+serviceid+"','"+serviceName+"','"+serviceCaste+"','"+serviceState+"','"+serviceInfo+"','"+serviceAge+"')";
 
                     database.execSQL(insert);
 
@@ -111,21 +148,7 @@ public class AllServices extends AppCompatActivity  {
         ArrayAdapter<String> adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,serviceNameList);
         listViewService.setAdapter(adapter);
 
-        listViewService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Intent intent =new Intent(AllServices.this,ServiceDetailsActivity.class);
-
-
-
-                intent.putExtra(ServiceDetailsActivity.serviceName,service);
-
-
-                startActivity(intent);
-
-            }
-        });
     }
 
 

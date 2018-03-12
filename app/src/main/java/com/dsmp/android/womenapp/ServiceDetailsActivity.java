@@ -14,10 +14,21 @@ import java.util.ArrayList;
 public class ServiceDetailsActivity extends AppCompatActivity {
 
     Service service;
-    TextView txtServiceName,txtServiceCaste,txtServiceState,txtServiceAge,txtServiceInformation;
-    TextView nameResult,stateResult,casteResult,ageResult,informationResult;
-    public static  final String serviceId="com.dsmp.android.womenapp.serviceId";
-    public static final String serviceName="com.dsmp.android.womenapp.serviceName";
+
+    String displayServiceName,displayServiceInfo,displayServiceAge,displayServiceState,displayServiceCaste;
+
+    String serviceNameColumn="serviceName"
+            ,serviceInfoColumn="serviceInfo"
+            ,serviceAgeColumn="serviceAge"
+            ,serviceIdColumn="serviceId"
+            ,serviceStateColumn="serviceState"
+            ,serviceCasteColumn="serviceCaste";
+
+    TextView serviceName,serviceInfo,serviceCaste,serviceState,serviceAge;
+
+    public static  String serviceIdExtra="";
+    public static  String serviceIdExtraName="com.dsmp.android.womenapp.serviceId";
+    public static  String serviceNameExtra="com.dsmp.android.womenapp.serviceName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,50 +36,49 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service_details);
 
 
-       /* nameResult=findViewById(R.id.nameResult);
-        stateResult=findViewById(R.id.stateResult);
-        casteResult=findViewById(R.id.casteResult);
-        ageResult=findViewById(R.id.ageResult);
-        informationResult=findViewById(R.id.informationResult);
+        serviceName=findViewById(R.id.serviceName);
+        serviceCaste=findViewById(R.id.serviceCaste);
+        serviceState=findViewById(R.id.serviceState);
+        serviceAge=findViewById(R.id.serviceAge);
+        serviceInfo=findViewById(R.id.serviceInfo);
+
+        Intent intent =getIntent();
+
+        serviceIdExtra=intent.getStringExtra(serviceIdExtraName);
 
 
-       Intent intent=getIntent();
-        service=intent.getParcelableExtra(serviceName);
 
-        nameResult.setText(service.getServiceName());
-        stateResult.setText(service.getServiceState());
-        casteResult.setText(service.getServiceCaste());
-        ageResult.setText(service.getServiceMaxAge());
-        informationResult.setText(service.getServiceInfo());
-
-
-        */
-        ListView listView =findViewById(R.id.listview);
         SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
-        String query = "SELECT serviceName ,serviceCaste FROM Services";
+        String query = "SELECT "+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+" FROM Services WHERE "+serviceIdColumn+"=";
+        query+="\""+serviceIdExtra+"\"";
 
         Cursor cursor=database.rawQuery(query,null);
-
-        ArrayList<String> data =new ArrayList<String>();
-
-        data.clear();
 
         while(cursor.moveToNext()) {
 
 
 
-            String serviceName= cursor.getString(0);
-
-            String serviceCaste = cursor.getString( 1);
-
-            data.add(serviceName + " - "+serviceCaste);
+            displayServiceName= cursor.getString(0);
 
 
+            displayServiceCaste = cursor.getString( 1);
+
+            displayServiceState =cursor.getString(2);
+
+            displayServiceInfo=cursor.getString(3);
+
+            displayServiceAge=cursor.getString(4);
         }
 
-        ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,data);
-        listView.setAdapter(adapter);
+
+
+        serviceName.setText("Service Name :"+displayServiceName);
+        serviceCaste.setText("Caste :"+displayServiceCaste);
+        serviceState.setText("State :"+displayServiceState);
+        serviceAge.setText("Age :"+displayServiceAge);
+        serviceInfo.setText("Information :"+displayServiceInfo);
+
 
     }
 

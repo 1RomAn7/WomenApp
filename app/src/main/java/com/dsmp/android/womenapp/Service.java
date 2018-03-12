@@ -14,7 +14,7 @@ public class Service implements Parcelable {
     private String serviceInfo;
     private String serviceState;
     private String serviceMinAge;
-    private String serviceMaxAge;
+    //private String serviceMaxAge;
     private String serviceCaste;
 
     public Service(String id, String serviceName,String serviceinfo, String serviceState, String serviceMinAge, String serviceMaxAge, String serviceCaste) {
@@ -23,7 +23,7 @@ public class Service implements Parcelable {
         this.serviceInfo= serviceinfo;
         this.serviceState = serviceState;
         this.serviceMinAge = serviceMinAge;
-        this.serviceMaxAge = serviceMaxAge;
+       // this.serviceMaxAge = serviceMaxAge;
         this.serviceCaste = serviceCaste;
     }
 
@@ -39,7 +39,7 @@ public class Service implements Parcelable {
         serviceState=in.readString();
         serviceInfo=in.readString();
         serviceMinAge=in.readString();
-        serviceMaxAge=in.readString();
+       // serviceMaxAge=in.readString();
         serviceCaste=in.readString();
 
 
@@ -89,13 +89,13 @@ public class Service implements Parcelable {
         this.serviceMinAge = serviceMinAge;
     }
 
-    public String getServiceMaxAge() {
+   /* public String getServiceMaxAge() {
         return serviceMaxAge;
     }
 
     public void setServiceMaxAge(String serviceMaxAge) {
         this.serviceMaxAge = serviceMaxAge;
-    }
+    }*/
 
     public String getServiceCaste() {
         return serviceCaste;
@@ -117,7 +117,7 @@ public class Service implements Parcelable {
             parcel.writeString(id);
             parcel.writeString(serviceName);
             parcel.writeString(serviceCaste);
-            parcel.writeString(serviceMaxAge);
+           // parcel.writeString(serviceMaxAge);
             parcel.writeString(serviceMinAge);
             parcel.writeString(serviceState);
             parcel.writeString(serviceInfo);
