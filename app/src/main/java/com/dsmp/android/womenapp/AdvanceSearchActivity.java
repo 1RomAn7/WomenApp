@@ -10,6 +10,7 @@ import android.widget.EditText;
 public class AdvanceSearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     public final static String Age="com.dsmp.android.womenapp.age";
+
     Button  buttonSearch;
     EditText  etxAge,etxState,etxCaste;
     @Override
@@ -42,12 +43,12 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
 
         String state =etxState.getText().toString();
 
-        /*
-      AdvanceSearchResultActivity.getAge=age;
-      AdvanceSearchResultActivity.getState=state;
-      AdvanceSearchResultActivity.getCaste=caste;
-      */
-        intent.putExtra(Age,age);
+        intent.putExtra(AdvanceSearchResultActivity.AGE,age);
+
+        intent.putExtra(AdvanceSearchResultActivity.CASTE,caste);
+
+        intent.putExtra(AdvanceSearchResultActivity.STATE,state);
+
         startActivity(intent);
 
     }

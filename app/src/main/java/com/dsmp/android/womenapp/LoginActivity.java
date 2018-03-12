@@ -54,8 +54,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         String Email=etxEmail.getText().toString();
         String password=etxPassowrd.getText().toString();
-        firebaseAuth.signInWithEmailAndPassword(Email,password).addOnCompleteListener(this);
 
+        if(Email.isEmpty() && password.isEmpty()){
+
+            Toast.makeText(this,"Enter Email And Password",Toast.LENGTH_LONG).show();
+
+
+        }else {
+
+
+            firebaseAuth.signInWithEmailAndPassword(Email, password).addOnCompleteListener(this);
+        }
     }
 
     @Override
@@ -64,6 +73,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(task.isSuccessful()){
             Intent intent = new Intent(this, AddServices.class);
 
+            etxEmail.setText("");
+
+            etxPassowrd.setText("");
 
             startActivity(intent);
 
