@@ -38,6 +38,11 @@
     <string name="Login_caste">Caste</string>
     <string name="Login_state">State</string>
     <string name="add_service">Add Service</string>
+    <string name="service_name1">Service Name</string>
+    <string name="service_state">Service State</string>
+    <string name="service_caste">Service Caste</string>
+    <string name="age1">Age</string>
+    <string name="service_information">Service Information</string>
 
 
 </resources>
