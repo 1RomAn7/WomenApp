@@ -3,8 +3,10 @@ package com.dsmp.android.womenapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +28,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     TextView serviceName,serviceInfo,serviceCaste,serviceState,serviceAge;
 
+    FloatingActionButton fab;
+
     public static  String serviceIdExtra="";
     public static  String serviceIdExtraName="com.dsmp.android.womenapp.serviceId";
     public static  String serviceNameExtra="com.dsmp.android.womenapp.serviceName";
@@ -43,6 +47,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceInfo=findViewById(R.id.serviceInfo);
 
         Intent intent =getIntent();
+
+        fab =findViewById(R.id.fab);
 
         serviceIdExtra=intent.getStringExtra(serviceIdExtraName);
 
@@ -79,6 +85,19 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceAge.setText("Age :"+displayServiceAge);
         serviceInfo.setText("Information :"+displayServiceInfo);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("message/rfc822");
+
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check out new Service : "+serviceName.getText());
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, serviceName.getText()+"\n"+serviceAge.getText()+"\n"+serviceState.getText()+"\n"
+                        +serviceCaste.getText()+"\n"+serviceInfo.getText()+"\n");
+                startActivity(emailIntent);
+            }
+        });
 
     }
 
