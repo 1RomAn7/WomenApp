@@ -1,6 +1,7 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static int SPLASH_TIME_OUT=4000;
 
     Button buttonAllService,buttonLogin;
     Button buttonAdvanceSearch;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         buttonAllService = findViewById(R.id.buttonAllService);
         buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);

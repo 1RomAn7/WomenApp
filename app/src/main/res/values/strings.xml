@@ -43,6 +43,7 @@
     <string name="service_caste">Service Caste</string>
     <string name="age1">Age</string>
     <string name="service_information">Service Information</string>
+    <string name="todo">TODO</string>
 
 
 </resources>

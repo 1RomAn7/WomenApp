@@ -85,6 +85,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceAge.setText("Age :"+displayServiceAge);
         serviceInfo.setText("Information :"+displayServiceInfo);
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
