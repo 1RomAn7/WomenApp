@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,12 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity{
 
-    private static int SPLASH_TIME_OUT=4000;
 
-    Button buttonAllService,buttonLogin;
-    Button buttonAdvanceSearch;
+    CardView allService,advanceSerach;
+
+    Button login;
+    //Button buttonAllService,buttonLogin;
+
+
+
 
 
 
@@ -29,7 +34,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       allService=findViewById(R.id.allServices);
+       advanceSerach=findViewById(R.id.advanceSerach);
+       login=findViewById(R.id.login);
 
+
+       allService.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               Intent intent =new Intent(MainActivity.this,AllServices.class);
+
+               startActivity(intent);
+
+           }
+       });
+
+       advanceSerach.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               Intent intent = new Intent(MainActivity.this,AdvanceSearchActivity.class);
+               startActivity(intent);
+
+
+           }
+       });
+
+       login.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               Intent intent =new Intent(MainActivity.this,LoginActivity.class);
+
+               startActivity(intent);
+
+           }
+       });
+
+
+    /*
         buttonAllService = findViewById(R.id.buttonAllService);
         buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);
         buttonLogin=findViewById(R.id.etxPassword);
@@ -37,39 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonAllService.setOnClickListener(this);
         buttonLogin.setOnClickListener(this);
         buttonAdvanceSearch.setOnClickListener(this);
-
+*/
     }
 
 
-    /*protected void onStart() {
-        super.onStart();
-        sChildRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot postSnapShot:dataSnapshot.getChildren()) {
-
-
-                    Service service=postSnapShot.getValue(Service.class);
-
-                    serviceList.add(service);
-                    
-                }
-
-
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-
-            }
-        });
-    }*/
-    @Override
-    public void onClick(View view) {
+    //@Override
+   /* public void onClick(View view) {
 
         if(buttonAllService.getId()==view.getId())
         {
@@ -97,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
+    }*/
 
 
 

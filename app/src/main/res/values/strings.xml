@@ -44,6 +44,16 @@
     <string name="age1">Age</string>
     <string name="service_information">Service Information</string>
     <string name="todo">TODO</string>
+    <string name="all_services1">All Services</string>
+    <string name="check_all_services">Check All services</string>
+    <string name="advance_search1">Advance Search</string>
+    <string name="search_services">Search Services</string>
+    <string name="add">Add</string>
+    <string name="check_your_bank_activities">Check your bank activities</string>
+    <string name="login_main">Login</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="todo3">TODO</string>
 
 
 </resources>
