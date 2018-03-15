@@ -6,9 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +47,9 @@ public class AllServices extends AppCompatActivity  {
 
     ListView listViewService;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +57,9 @@ public class AllServices extends AppCompatActivity  {
         serviceNameList=new ArrayList<>();
         serviceList = new ArrayList<Service>();
         listViewService = findViewById(R.id.listViewService);
+
+
+
 
         initialize();
 
@@ -101,7 +110,7 @@ public class AllServices extends AppCompatActivity  {
                      service = postSnapShot.getValue(Service.class);
                    // String service = postSnapShot.getValue(String.class);
 
-                    serviceNameList.add(service.getServiceName());
+                  serviceNameList.add(service.getServiceName());
 
 
                     serviceName=service.getServiceName();
@@ -144,7 +153,8 @@ public class AllServices extends AppCompatActivity  {
 
 
     private void initialize() {
-        //serviceList.add();
+
+
         ArrayAdapter<String> adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,serviceNameList);
         listViewService.setAdapter(adapter);
 

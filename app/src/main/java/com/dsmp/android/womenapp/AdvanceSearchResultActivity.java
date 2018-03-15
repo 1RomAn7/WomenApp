@@ -87,7 +87,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
                 displayServiceAge=cursor.getString(4);
 
-                searchResult.add(displayServiceName+"\n"+displayServiceCaste +"|||"+ displayServiceState +"|||"+ displayServiceAge);
+                searchResult.add(displayServiceName);
 
             }
 
