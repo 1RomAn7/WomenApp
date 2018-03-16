@@ -28,7 +28,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         etxServiceName =findViewById(R.id.etxServiceName);
         etxServiceInfo=findViewById(R.id.etxServiceInfo);
         etxMinAge=findViewById(R.id.etxMinAge);
-        etxMaxAge=findViewById(R.id.etxMaxAge);
+        //etxMaxAge=findViewById(R.id.etxMaxAge);
         etxServiceState=findViewById(R.id.etxState);
         etxServiceCaste=findViewById(R.id.etxCaste);
 
@@ -46,9 +46,9 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         String serviceState=etxServiceState.getText().toString();
         String serviceCaste=etxServiceCaste.getText().toString();
         String minAge=etxMinAge.getText().toString();
-        String maxAge=etxMaxAge.getText().toString();
+        //String maxAge=etxMaxAge.getText().toString();
 
-        if(serviceName.isEmpty() || serviceInfo.isEmpty() || serviceState.isEmpty() || serviceCaste.isEmpty() || minAge.isEmpty() || maxAge.isEmpty()){
+        if(serviceName.isEmpty() || serviceInfo.isEmpty() || serviceState.isEmpty() || serviceCaste.isEmpty() || minAge.isEmpty()){
 
 
             Toast.makeText(this,"Please Enter all Fields",Toast.LENGTH_LONG).show();
@@ -59,7 +59,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
 
             String id = serviceDatabase.push().getKey();
 
-            Service service =new Service(id,serviceName,serviceInfo,serviceState,minAge,maxAge,serviceCaste);
+            Service service =new Service(id,serviceName,serviceInfo,serviceState,minAge,serviceCaste);
 
             serviceDatabase.child(id).setValue(service).addOnCompleteListener(this);
 
@@ -81,7 +81,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
 
             etxServiceName.setText("");
             etxMinAge.setText("");
-            etxMaxAge.setText("");
+
             etxServiceCaste.setText("");
             etxServiceInfo.setText("");
             etxServiceState.setText("");

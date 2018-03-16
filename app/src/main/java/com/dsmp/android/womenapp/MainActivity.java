@@ -1,15 +1,20 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +24,26 @@ public class MainActivity extends AppCompatActivity{
 
 
     CardView allService,advanceSerach;
+
+    String serviceNameColumn="serviceName"
+            ,serviceInfoColumn="serviceInfo"
+            ,serviceAgeColumn="serviceAge"
+            ,serviceIdColumn="serviceId"
+            ,serviceStateColumn="serviceState"
+            ,serviceCasteColumn="serviceCaste";
+
+
+
+
+    DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
+
+    DatabaseReference sChildRef = sRootRef.child("");
+
+    String serviceName,serviceInfo,serviceAge,serviceid,serviceState,serviceCaste;
+
+    Service service;
+
+    List<Service> serviceList;
 
     Button login;
     //Button buttonAllService,buttonLogin;
@@ -37,6 +62,8 @@ public class MainActivity extends AppCompatActivity{
        allService=findViewById(R.id.allServices);
        advanceSerach=findViewById(R.id.advanceSerach);
        login=findViewById(R.id.login);
+
+        serviceList = new ArrayList<Service>();
 
 
        allService.setOnClickListener(new View.OnClickListener() {
@@ -73,49 +100,63 @@ public class MainActivity extends AppCompatActivity{
        });
 
 
-    /*
-        buttonAllService = findViewById(R.id.buttonAllService);
-        buttonAdvanceSearch= findViewById(R.id.buttonAdvanceSerch);
-        buttonLogin=findViewById(R.id.etxPassword);
 
-        buttonAllService.setOnClickListener(this);
-        buttonLogin.setOnClickListener(this);
-        buttonAdvanceSearch.setOnClickListener(this);
-*/
+
     }
 
 
-    //@Override
-   /* public void onClick(View view) {
+    protected void onStart() {
+        super.onStart();
+        final ValueEventListener valueEventListener = sChildRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        if(buttonAllService.getId()==view.getId())
-        {
+                serviceList.clear();
 
-            Intent intent =new Intent(this,AllServices.class);
+                for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
 
-            //intent.putExtra("Contact_list", (Parcelable) serviceList);
-            startActivity(intent);
-        }
 
-        if(buttonAdvanceSearch.getId()==view.getId())
-        {
+                    service = postSnapShot.getValue(Service.class);
 
-            Intent intent;
-            intent = new Intent(this,AdvanceSearchActivity.class);
-            startActivity(intent);
 
-        }
-        if(buttonLogin.getId()==view.getId())
-        {
 
-            Intent intent =new Intent(this,LoginActivity.class);
 
-            startActivity(intent);
+                    serviceName=service.getServiceName();
+                    serviceCaste=service.getServiceCaste();
+                    serviceAge=service.getServiceMinAge();
+                    serviceState=service.getServiceState();
+                    serviceid=service.getId();
+                    serviceInfo=service.getServiceInfo();
 
-        }
 
-    }*/
+                    SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
+                    String query = "CREATE TABLE IF NOT EXISTS Services("+serviceIdColumn+" VARCHAR PRIMARY KEY ,"+serviceNameColumn+" VARCHAR ,"+serviceCasteColumn+" VARCHAR ,"+serviceStateColumn+" VARCHAR ,"+serviceInfoColumn+" VARCHAR ,"+serviceAgeColumn+" VARCHAR)";
+
+
+                    database.execSQL(query);
+
+                    String insert = "INSERT OR REPLACE INTO Services("+serviceIdColumn+","+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+")";
+                    insert+=" VALUES('"+serviceid+"','"+serviceName+"','"+serviceCaste+"','"+serviceState+"','"+serviceInfo+"','"+serviceAge+"')";
+
+                    database.execSQL(insert);
+
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        });
+    }
 
 
 }

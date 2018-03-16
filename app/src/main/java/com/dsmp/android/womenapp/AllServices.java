@@ -98,7 +98,7 @@ public class AllServices extends AppCompatActivity  {
 
     protected void onStart() {
         super.onStart();
-        final ValueEventListener valueEventListener = sChildRef.addValueEventListener(new ValueEventListener() {
+       /* final ValueEventListener valueEventListener = sChildRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -137,7 +137,7 @@ public class AllServices extends AppCompatActivity  {
                 }
 
 
-                initialize();
+
 
 
             }
@@ -147,7 +147,30 @@ public class AllServices extends AppCompatActivity  {
 
 
             }
-        });
+        });*/
+
+
+        SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+        String query = "SELECT * FROM Services ORDER BY "+serviceNameColumn+" ASC";
+
+        String serviceName;
+
+
+        Cursor cursor = database.rawQuery(query, null);
+
+
+
+            serviceNameList.clear();
+            while (cursor.moveToNext()) {
+
+                serviceName = cursor.getString(1);
+                serviceNameList.add(serviceName);
+
+            }
+
+
+        initialize();
     }
 
 

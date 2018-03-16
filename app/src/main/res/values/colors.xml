@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
     <color name="fabColor">#D50000</color>>
     <color name="orange">#ff6201</color>
 
@@ -16,8 +16,8 @@
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
 
-    <color name="colorPrimary1">#FFC107</color>
-    <color name="colorPrimaryDark1">#FFA000</color>
+    <color name="colorPrimary1">#ffc107</color>
+    <color name="colorPrimaryDark1">#ffa000</color>
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="lightgray">#ededed</color>
     <color name="deeppurple">#7c4dff</color>

@@ -17,7 +17,7 @@ public class Service implements Parcelable {
     //private String serviceMaxAge;
     private String serviceCaste;
 
-    public Service(String id, String serviceName,String serviceinfo, String serviceState, String serviceMinAge, String serviceMaxAge, String serviceCaste) {
+    public Service(String id, String serviceName,String serviceinfo, String serviceState, String serviceMinAge, String serviceCaste) {
         this.id = id;
         this.serviceName = serviceName;
         this.serviceInfo= serviceinfo;

@@ -67,8 +67,8 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
             SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
-            String query = "SELECT "+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+" FROM Services WHERE "+serviceCasteColumn+"=";
-            query+="\""+casteExtra+"\" OR "+serviceStateColumn+"=\""+stateExtra+"\" OR "+serviceAgeColumn+"=\""+ageExtra+"\"";
+            String query = "SELECT "+serviceNameColumn+" FROM Services WHERE "+serviceCasteColumn+"=";
+            query+="\""+casteExtra+"\" OR "+serviceStateColumn+"=\""+stateExtra+"\" OR "+serviceAgeColumn+"<=\""+ageExtra+"\" ORDER BY "+serviceNameColumn+" ASC";
 
 
 
@@ -78,14 +78,6 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
                 displayServiceName= cursor.getString(0);
 
-
-                displayServiceCaste = cursor.getString( 1);
-
-                displayServiceState =cursor.getString(2);
-
-                displayServiceInfo=cursor.getString(3);
-
-                displayServiceAge=cursor.getString(4);
 
                 searchResult.add(displayServiceName);
 
