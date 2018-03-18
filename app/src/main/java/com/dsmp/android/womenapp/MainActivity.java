@@ -22,7 +22,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
 
 
-    CardView allService,advanceSerach;
+    CardView allService, advanceSearch;
 
     String serviceNameColumn="serviceName"
             ,serviceInfoColumn="serviceInfo"
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
        allService=findViewById(R.id.allServices);
-       advanceSerach=findViewById(R.id.advanceSerach);
+       advanceSearch =findViewById(R.id.advanceSerach);
        login=findViewById(R.id.login);
 
         serviceList = new ArrayList<>();
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity{
            }
        });
 
-       advanceSerach.setOnClickListener(new View.OnClickListener() {
+       advanceSearch.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
 
@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
+
     }
 
 
