@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddServices extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<Void> {
 
     Button buttonAddService;
-    EditText etxServiceName,etxServiceInfo,etxMinAge,etxMaxAge,etxServiceState,etxServiceCaste;
+    EditText etxServiceName,etxServiceInfo,etxMinAge,etxServiceState,etxServiceCaste;
     DatabaseReference serviceDatabase;
 
     @Override
@@ -28,7 +28,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         etxServiceName =findViewById(R.id.etxServiceName);
         etxServiceInfo=findViewById(R.id.etxServiceInfo);
         etxMinAge=findViewById(R.id.etxMinAge);
-        //etxMaxAge=findViewById(R.id.etxMaxAge);
+
         etxServiceState=findViewById(R.id.etxState);
         etxServiceCaste=findViewById(R.id.etxCaste);
 
@@ -46,7 +46,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         String serviceState=etxServiceState.getText().toString();
         String serviceCaste=etxServiceCaste.getText().toString();
         String minAge=etxMinAge.getText().toString();
-        //String maxAge=etxMaxAge.getText().toString();
+
 
         if(serviceName.isEmpty() || serviceInfo.isEmpty() || serviceState.isEmpty() || serviceCaste.isEmpty() || minAge.isEmpty()){
 

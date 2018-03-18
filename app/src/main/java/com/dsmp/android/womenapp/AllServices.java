@@ -3,47 +3,34 @@ package com.dsmp.android.womenapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Parcelable;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AllServices extends AppCompatActivity  {
 
-    String serviceNameColumn="serviceName"
-            ,serviceInfoColumn="serviceInfo"
-            ,serviceAgeColumn="serviceAge"
-            ,serviceIdColumn="serviceId"
-            ,serviceStateColumn="serviceState"
-            ,serviceCasteColumn="serviceCaste";
+    String serviceNameColumn="serviceName";
 
 
     public String serviceIdExtra;
 
-    String serviceName,serviceInfo,serviceAge,serviceid,serviceState,serviceCaste;
 
-    Service service;
+
     List<Service> serviceList;
 
     List<String> serviceNameList;
-    DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
+    //DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
 
-    DatabaseReference sChildRef = sRootRef.child("");
+  //  DatabaseReference sChildRef = sRootRef.child("");
 
     ListView listViewService;
 
@@ -55,7 +42,7 @@ public class AllServices extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_services);
         serviceNameList=new ArrayList<>();
-        serviceList = new ArrayList<Service>();
+        serviceList = new ArrayList<>();
         listViewService = findViewById(R.id.listViewService);
 
 
@@ -83,6 +70,7 @@ public class AllServices extends AppCompatActivity  {
 
                 }
 
+                cursor.close();
 
                 Intent intent =new Intent(AllServices.this,ServiceDetailsActivity.class);
                 intent.putExtra(ServiceDetailsActivity.serviceIdExtraName,serviceIdExtra);
@@ -169,7 +157,7 @@ public class AllServices extends AppCompatActivity  {
 
             }
 
-
+        cursor.close();
         initialize();
     }
 

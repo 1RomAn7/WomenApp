@@ -5,13 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+
 import android.widget.ListView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,16 +20,16 @@ import java.util.List;
 public class AdvanceSearchResultActivity extends AppCompatActivity {
 
     String serviceNameColumn="serviceName"
-            ,serviceInfoColumn="serviceInfo"
             ,serviceAgeColumn="serviceAge"
             ,serviceIdColumn="serviceId"
             ,serviceStateColumn="serviceState"
             ,serviceCasteColumn="serviceCaste";
 
 
+
     public String serviceIdExtra;
 
-    String displayServiceName,displayServiceInfo,displayServiceAge,displayServiceState,displayServiceCaste;
+    String displayServiceName;
 
 
     public final static String AGE = "com.dsmp.android.womenapp.age";
@@ -63,27 +63,231 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
 
 
-
-
-            SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
-
-            String query = "SELECT "+serviceNameColumn+" FROM Services WHERE "+serviceCasteColumn+"=";
-            query+="\""+casteExtra+"\" OR "+serviceStateColumn+"=\""+stateExtra+"\" OR "+serviceAgeColumn+"<=\""+ageExtra+"\" ORDER BY "+serviceNameColumn+" ASC";
+            if(casteExtra.isEmpty() && ageExtra.isEmpty() && stateExtra.isEmpty()){
 
 
 
-            Cursor cursor = database.rawQuery(query, null);
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
-            while (cursor.moveToNext()) {
+                String query = "SELECT * FROM Services ORDER BY "+serviceNameColumn+" ASC";
 
-                displayServiceName= cursor.getString(0);
+                String serviceName;
 
 
-                searchResult.add(displayServiceName);
+                Cursor cursor = database.rawQuery(query, null);
+
+
+
+                searchResult.clear();
+                while (cursor.moveToNext()) {
+
+                    serviceName = cursor.getString(1);
+                    searchResult.add(serviceName);
+
+                }
+
+                cursor.close();
+
+
+
+            }
+            else if(stateExtra.isEmpty() && casteExtra.isEmpty()){
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceAgeColumn + "<=";
+                query += "\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+                cursor.close();
+            }
+            else if (ageExtra.isEmpty() && stateExtra.isEmpty()) {
+
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+                query += "\"" + casteExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+                cursor.close();
+
+            }else if(ageExtra.isEmpty() && casteExtra.isEmpty()){
+
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceStateColumn + "=";
+                query += "\"" + stateExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+                cursor.close();
+
+            }else if(ageExtra.isEmpty()){
+
+
+
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+                query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+
+                cursor.close();
+
+
+
+            }else if(casteExtra.isEmpty()){
+
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceAgeColumn + "<=";
+                query += "\"" + ageExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+                cursor.close();
+
+
+
+            }else if(stateExtra.isEmpty()){
+
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceAgeColumn + "<=";
+                query += "\"" + ageExtra + "\" AND " + serviceCasteColumn + "=\"" + casteExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+
+                cursor.close();
 
             }
 
+            else
+            {
 
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+                query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" AND " + serviceAgeColumn + "<=\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                if (searchResult.isEmpty()){
+
+                    Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+                }
+                cursor.close();
+
+            }
 
 
 
@@ -113,6 +317,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
                 Intent intent =new Intent(AdvanceSearchResultActivity.this,ServiceDetailsActivity.class);
                 intent.putExtra(ServiceDetailsActivity.serviceIdExtraName,serviceIdExtra);
                 startActivity(intent);
+                cursor.close();
             }
         });
 

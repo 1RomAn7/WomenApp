@@ -7,15 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 
 public class ServiceDetailsActivity extends AppCompatActivity {
 
-    Service service;
+
 
     String displayServiceName,displayServiceInfo,displayServiceAge,displayServiceState,displayServiceCaste;
 
@@ -77,7 +74,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
             displayServiceAge=cursor.getString(4);
         }
 
-
+        cursor.close();
 
         serviceName.setText("Service Name :"+displayServiceName);
         serviceCaste.setText("Caste :"+displayServiceCaste);

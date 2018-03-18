@@ -9,8 +9,6 @@ import android.widget.EditText;
 
 public class AdvanceSearchActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public final static String Age="com.dsmp.android.womenapp.age";
-
     Button  buttonSearch;
     EditText  etxAge,etxState,etxCaste;
     @Override

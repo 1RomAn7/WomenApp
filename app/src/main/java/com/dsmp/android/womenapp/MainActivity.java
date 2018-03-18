@@ -2,13 +2,12 @@ package com.dsmp.android.womenapp;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity{
        advanceSerach=findViewById(R.id.advanceSerach);
        login=findViewById(R.id.login);
 
-        serviceList = new ArrayList<Service>();
+        serviceList = new ArrayList<>();
 
 
        allService.setOnClickListener(new View.OnClickListener() {
@@ -118,15 +117,12 @@ public class MainActivity extends AppCompatActivity{
 
                     service = postSnapShot.getValue(Service.class);
 
-
-
-
-                    serviceName=service.getServiceName();
-                    serviceCaste=service.getServiceCaste();
-                    serviceAge=service.getServiceMinAge();
-                    serviceState=service.getServiceState();
-                    serviceid=service.getId();
-                    serviceInfo=service.getServiceInfo();
+                        serviceName = service.getServiceName();
+                        serviceCaste = service.getServiceCaste();
+                        serviceAge = service.getServiceMinAge();
+                        serviceState = service.getServiceState();
+                        serviceid = service.getId();
+                        serviceInfo = service.getServiceInfo();
 
 
                     SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
