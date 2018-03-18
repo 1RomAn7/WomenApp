@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity{
 
     List<Service> serviceList;
 
-    Button login;
+   // Button login;
     //Button buttonAllService,buttonLogin;
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity{
 
        allService=findViewById(R.id.allServices);
        advanceSearch =findViewById(R.id.advanceSerach);
-       login=findViewById(R.id.login);
+      // login=findViewById(R.id.login);
 
         serviceList = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity{
            }
        });
 
-       login.setOnClickListener(new View.OnClickListener() {
+       /*login.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity{
                startActivity(intent);
 
            }
-       });
+       });*/
 
 
 
