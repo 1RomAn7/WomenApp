@@ -62,4 +62,10 @@
     <string name="action_settings">Settings</string>
 
 
+    //id visible
+
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
 </resources>
+
+

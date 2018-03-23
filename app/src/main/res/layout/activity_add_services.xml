@@ -3,115 +3,124 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.dsmp.android.womenapp.AddServices">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="165dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/add_service_information"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etxServiceName"
+    <LinearLayout
+        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-
-        android:ems="10"
-        android:hint="@string/service_name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/etxServiceInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/service_info"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/etxServiceName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etxServiceName"
-        app:layout_constraintTop_toBottomOf="@+id/etxServiceName" />
-
-    <EditText
-        android:id="@+id/etxMinAge"
-        android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/minimun_age"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/etxServiceInfo"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="@+id/etxServiceInfo"
-        app:layout_constraintTop_toBottomOf="@+id/etxServiceInfo" />
-
-    <EditText
-        android:id="@+id/etxCaste"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/caste"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxMinAge" />
-
-    <EditText
-        android:id="@+id/etxState"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/state"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/etxCaste"
-        app:layout_constraintStart_toStartOf="@+id/etxCaste"
-        app:layout_constraintTop_toBottomOf="@+id/etxCaste" />
-
-    <Button
-        android:id="@+id/buttonAddService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/add_service"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etxState"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/etxState"
-        app:layout_constraintTop_toBottomOf="@+id/etxState" />
+        android:orientation="vertical">
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="165dp"
+                    android:layout_height="17dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/add_service_information"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                     />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etxServiceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+
+                    android:ems="10"
+                    android:hint="@string/service_name"
+                    android:inputType="textPersonName"
+                    />
+                </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etxServiceInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="@string/service_info"
+                    android:inputType="textMultiLine"
+                     />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etxMinAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="@string/minimun_age"
+                    android:inputType="number"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etxCaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="@string/caste"
+                    android:inputType="textPersonName"
+                   />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etxState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="@string/state"
+                    android:inputType="textPersonName" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonAddService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="@string/add_service" />
+
+    </LinearLayout>
 </ScrollView>

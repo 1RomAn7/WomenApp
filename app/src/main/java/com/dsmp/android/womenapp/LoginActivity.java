@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
  */
 
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
+public class LoginActivity extends AppCompatActivity{
 
     Button buttonLogin;
     TextView txtLogin;
@@ -41,19 +41,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etxPassowrd=findViewById(R.id.etxPassword);
 
         firebaseAuth=FirebaseAuth.getInstance();
-        buttonLogin.setOnClickListener(this);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validate();
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View view) {
-
-        if(buttonLogin.getId()==view.getId()) {
-
-          validate();
-        }
-
-    }
 
     private void validate() {
 
@@ -68,33 +64,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }else if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
 
-            Toast.makeText(this, "Enter Valid Email", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Enter Valid Email Address", Toast.LENGTH_LONG).show();
 
 
         }else{
 
 
-            firebaseAuth.signInWithEmailAndPassword(Email, password).addOnCompleteListener(this);
+            firebaseAuth.signInWithEmailAndPassword(Email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()){
+
+
+                        etxEmail.setText("");
+
+                        etxPassowrd.setText("");
+
+                        Intent intent = new Intent(LoginActivity.this, AddServices.class);
+                        startActivity(intent);
+
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
         }
     }
 
-    @Override
-    public void onComplete(@NonNull Task<AuthResult> task) {
 
-        if(task.isSuccessful()){
-            Intent intent = new Intent(this, AddServices.class);
-
-            etxEmail.setText("");
-
-            etxPassowrd.setText("");
-
-            startActivity(intent);
-
-            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-
-        }else{
-            Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }
