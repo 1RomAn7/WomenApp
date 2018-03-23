@@ -16,6 +16,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by vipul.
+ */
+
+
 public class AllServices extends AppCompatActivity  {
 
     String serviceNameColumn="serviceName";

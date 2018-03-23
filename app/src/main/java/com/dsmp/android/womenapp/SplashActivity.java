@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+/**
+ * Created by vipul.
+ */
+
+
 public class SplashActivity extends AppCompatActivity {
 
     private int SPLASH_TIME_OUT = 3000;
