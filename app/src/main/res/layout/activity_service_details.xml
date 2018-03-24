@@ -10,38 +10,49 @@
 
     <TextView
         android:id="@+id/serviceName"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/serviceState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"/>
 
     <TextView
         android:id="@+id/serviceCaste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"/>
 
     <TextView
         android:id="@+id/serviceAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"/>
 
     <TextView
         android:id="@+id/serviceInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

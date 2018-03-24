@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by vipul .
@@ -91,10 +92,12 @@ public class ServiceDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(ServiceDetailsActivity.this, "Kindly Select G mail", Toast.LENGTH_SHORT).show();
+
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("message/rfc822");
 
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check out new Service : "+serviceName.getText());
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check out Service \n"+serviceName.getText());
                 emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, serviceName.getText()+"\n"+serviceAge.getText()+"\n"+serviceState.getText()+"\n"
                         +serviceCaste.getText()+"\n"+serviceInfo.getText()+"\n");
                 startActivity(emailIntent);
