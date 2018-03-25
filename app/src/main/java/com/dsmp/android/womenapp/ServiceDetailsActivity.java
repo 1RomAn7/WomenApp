@@ -81,11 +81,12 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         cursor.close();
 
-        serviceName.setText("Service Name :"+displayServiceName);
-        serviceCaste.setText("Caste :"+displayServiceCaste);
-        serviceState.setText("State :"+displayServiceState);
-        serviceAge.setText("Age :"+displayServiceAge);
-        serviceInfo.setText("Information :"+displayServiceInfo);
+
+        serviceName.setText(displayServiceName);
+        serviceCaste.setText(displayServiceCaste);
+        serviceState.setText(displayServiceState);
+        serviceAge.setText(displayServiceAge);
+        serviceInfo.setText("\t\t\t\t\t"+displayServiceInfo);
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +99,11 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 emailIntent.setType("message/rfc822");
 
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check out Service \n"+serviceName.getText());
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, serviceName.getText()+"\n"+serviceAge.getText()+"\n"+serviceState.getText()+"\n"
-                        +serviceCaste.getText()+"\n"+serviceInfo.getText()+"\n");
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "ServiceName : "+serviceName.getText()+
+                        "\n"+"Age : "+serviceAge.getText()+"\n"
+                        +"State : "+serviceState.getText()+"\n"
+                        +"Caste : "+serviceCaste.getText()+"\n"
+                        +"Information : "+serviceInfo.getText()+"\n");
                 startActivity(emailIntent);
             }
         });
