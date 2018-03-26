@@ -1,5 +1,6 @@
 package com.dsmp.android.womenapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by vipul.
@@ -50,6 +52,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
     ListView listView;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +71,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
 
 
-            if(casteExtra.isEmpty() && ageExtra.isEmpty() && stateExtra.isEmpty()){
+        /*    if(casteExtra=="All" && ageExtra.isEmpty() && stateExtra=="All"){
 
 
 
@@ -121,6 +124,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
                 cursor.close();
             }
+
             else if (ageExtra.isEmpty() && stateExtra.isEmpty()) {
 
                 SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
@@ -296,7 +300,99 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
 
 
+        */
 
+        if(ageExtra.isEmpty()){
+
+
+
+            SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+            String query = "SELECT * FROM Services ORDER BY "+serviceNameColumn+" ASC";
+
+            String serviceName;
+
+
+            Cursor cursor = database.rawQuery(query, null);
+
+
+
+            searchResult.clear();
+            while (cursor.moveToNext()) {
+
+                serviceName = cursor.getString(1);
+                searchResult.add(serviceName);
+
+            }
+
+            cursor.close();
+
+
+
+        }else if(Objects.equals(casteExtra, "All") && Objects.equals(stateExtra, "All")){
+
+            SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+
+            String query = "SELECT * FROM Services WHERE "+serviceAgeColumn+"<=\""+ageExtra+"\" ORDER BY "+serviceNameColumn+" ASC";
+            //String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+            //query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" AND " + serviceAgeColumn + "<=\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+            Cursor cursor = database.rawQuery(query, null);
+
+            while (cursor.moveToNext()) {
+
+                displayServiceName = cursor.getString(1);
+
+
+                searchResult.add(displayServiceName);
+
+            }
+
+            if (searchResult.isEmpty()){
+
+                Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+            }
+            cursor.close();
+
+
+
+
+
+
+        }
+        else{
+
+            SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+            String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+            query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" AND " + serviceAgeColumn + "<=\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+            Cursor cursor = database.rawQuery(query, null);
+
+            while (cursor.moveToNext()) {
+
+                displayServiceName = cursor.getString(0);
+
+
+                searchResult.add(displayServiceName);
+
+            }
+
+            if (searchResult.isEmpty()){
+
+                Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+
+            }
+            cursor.close();
+
+
+
+
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

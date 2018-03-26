@@ -33,7 +33,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="25dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
@@ -49,7 +49,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:text="ServiceName" />
+                android:text="ServiceName" android:layout_marginStart="10dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -74,7 +74,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="25dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
@@ -90,7 +90,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:text="ServiceName" />
+                android:text="State" android:layout_marginStart="10dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -114,7 +114,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="25dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
@@ -130,7 +130,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:text="ServiceName" />
+                android:text="Caste" android:layout_marginStart="10dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -154,7 +154,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="25dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="30dp"
@@ -170,7 +170,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:text="ServiceName" />
+                android:text="ServiceAge" android:layout_marginStart="10dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -213,7 +213,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="ServiceName"
+                android:text="ServiceInformation"
                 android:textAlignment="viewStart"
                 tools:ignore="RtlCompat" />
         </LinearLayout>
