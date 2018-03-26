@@ -14,43 +14,92 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_marginTop="90dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
        <EditText
            android:id="@+id/etxAge"
-           android:layout_width="wrap_content"
+           android:layout_marginLeft="20dp"
+           android:layout_marginStart="20dp"
+           android:layout_marginRight="20dp"
+           android:layout_marginEnd="20dp"
+           android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_gravity="center"
-           android:layout_marginEnd="8dp"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="90dp"
+
+
+
            android:ems="10"
            android:hint="@string/age"
            android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
        </android.support.design.widget.TextInputLayout>
 
        <android.support.design.widget.TextInputLayout
            android:layout_height="match_parent"
            android:layout_width="match_parent"
            android:layout_marginTop="48dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="State"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textStyle="bold"
+                tools:ignore="NewApi" />
            <Spinner
                android:id="@+id/stateSpinner"
                android:layout_width="220dp"
                android:layout_height="match_parent"
-               android:layout_gravity="center"
-               android:layout_weight="1" />
+                android:layout_marginStart="60dp"
+               android:layout_weight="1"
+               android:layout_marginLeft="60dp"/>
+        </LinearLayout>
        </android.support.design.widget.TextInputLayout>
 
        <android.support.design.widget.TextInputLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_marginTop="48dp">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginStart="20dp"
+
+                   android:text="Caste"
+                   android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                   android:textStyle="bold"
+                   tools:ignore="NewApi" />
 
            <Spinner
                android:id="@+id/casteSpinner"
                android:layout_width="220dp"
                android:layout_height="match_parent"
-               android:layout_gravity="center"
+               android:layout_marginLeft="56dp"
+               android:layout_marginStart="56dp"
                android:layout_weight="1" />
+
+           </LinearLayout>
        </android.support.design.widget.TextInputLayout>
         <Button
 

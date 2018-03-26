@@ -41,6 +41,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_details);
 
+        getSupportActionBar().setTitle("Service Details");
+
 
         serviceName=findViewById(R.id.serviceName);
         serviceCaste=findViewById(R.id.serviceCaste);

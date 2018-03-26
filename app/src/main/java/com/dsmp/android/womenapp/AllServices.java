@@ -1,5 +1,6 @@
 package com.dsmp.android.womenapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toolbar;
 
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class AllServices extends AppCompatActivity  {
 
+    Toolbar toolbar;
     String serviceNameColumn="serviceName";
 
 
@@ -42,6 +45,7 @@ public class AllServices extends AppCompatActivity  {
 
 
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,9 @@ public class AllServices extends AppCompatActivity  {
         serviceList = new ArrayList<>();
         listViewService = findViewById(R.id.listViewService);
 
+
+
+        getSupportActionBar().setTitle("All Services");
 
 
 

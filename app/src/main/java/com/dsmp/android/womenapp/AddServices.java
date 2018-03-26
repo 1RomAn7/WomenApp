@@ -28,6 +28,9 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_services);
+        getSupportActionBar().setTitle("Add Service");
+
+
 
         serviceDatabase = FirebaseDatabase.getInstance().getReference();
         etxServiceName =findViewById(R.id.etxServiceName);

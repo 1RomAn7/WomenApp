@@ -57,6 +57,8 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advance_search_result);
+        getSupportActionBar().setTitle("Advance Search Result");
+
 
         listView=findViewById(R.id.list_view);
 
@@ -308,7 +310,8 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
             SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
-            String query = "SELECT * FROM Services ORDER BY "+serviceNameColumn+" ASC";
+            String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+            query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" ORDER BY " + serviceNameColumn + " ASC";;
 
             String serviceName;
 
@@ -320,7 +323,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
             searchResult.clear();
             while (cursor.moveToNext()) {
 
-                serviceName = cursor.getString(1);
+                serviceName = cursor.getString(0);
                 searchResult.add(serviceName);
 
             }
@@ -329,7 +332,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
 
 
-        }else if(Objects.equals(casteExtra, "All") && Objects.equals(stateExtra, "All")){
+        }/*else if(Objects.equals(casteExtra, "All") && Objects.equals(stateExtra, "All")){
 
             SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
@@ -362,7 +365,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
 
 
-        }
+        }*/
         else{
 
             SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
