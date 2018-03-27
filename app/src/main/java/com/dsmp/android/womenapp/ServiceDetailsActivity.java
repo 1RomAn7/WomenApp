@@ -1,12 +1,15 @@
 package com.dsmp.android.womenapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
 
+    CheckBox bookmark;
+
     public static  String serviceIdExtra="";
     public static  String serviceIdExtraName="com.dsmp.android.womenapp.serviceId";
     public static  String serviceNameExtra="com.dsmp.android.womenapp.serviceName";
@@ -43,7 +48,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Service Details");
 
-
+        bookmark=findViewById(R.id.bookmark);
         serviceName=findViewById(R.id.serviceName);
         serviceCaste=findViewById(R.id.serviceCaste);
         serviceState=findViewById(R.id.serviceState);
@@ -109,6 +114,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 startActivity(emailIntent);
             }
         });
+
+
 
     }
 
