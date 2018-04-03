@@ -7,8 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity{
 
 
     CardView allService, advanceSearch;
+
 
     String serviceNameColumn="serviceName"
             ,serviceInfoColumn="serviceInfo"
@@ -49,14 +53,6 @@ public class MainActivity extends AppCompatActivity{
 
     List<Service> serviceList;
 
-   Button login;
-    //Button buttonAllService,buttonLogin;
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -65,7 +61,6 @@ public class MainActivity extends AppCompatActivity{
 
        allService=findViewById(R.id.allServices);
        advanceSearch =findViewById(R.id.advanceSerach);
-      login=findViewById(R.id.login);
 
         serviceList = new ArrayList<>();
 
@@ -88,17 +83,6 @@ public class MainActivity extends AppCompatActivity{
                Intent intent = new Intent(MainActivity.this,AdvanceSearchActivity.class);
                startActivity(intent);
 
-
-           }
-       });
-
-       login.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-
-               Intent intent =new Intent(MainActivity.this,LoginActivity.class);
-
-               startActivity(intent);
 
            }
        });
@@ -160,5 +144,39 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id=item.getItemId();
+
+        if(id==R.id.bookmarkedServices){
+
+            Intent intent =new Intent(this,BookmarkActivity.class);
+            startActivity(intent);
+
+
+        } else if(id==R.id.changeLang){
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
+            startActivity(intent);
+
+        }else if(id==R.id.loginPage) {
+
+            Intent intent =new Intent(this,LoginActivity.class);
+            startActivity(intent);
+
+        }
+
+
+        return true;
+    }
 }

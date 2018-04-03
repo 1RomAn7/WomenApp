@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".AdvanceSearchActivity" />
         <activity android:name=".AllServices" />
         <activity android:name=".AdvanceSearchResultActivity" />
@@ -36,6 +38,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".BookmarkActivity"></activity>
     </application>
 
 </manifest>

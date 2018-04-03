@@ -64,8 +64,8 @@
 
     //id visible
 
-    <item name="visible" type="id"/>
-    <item name="masked" type="id"/>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
 
 
     <string-array name="StatesArray">

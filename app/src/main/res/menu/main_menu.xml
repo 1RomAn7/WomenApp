@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bookmarkedServices"
+        android:title="Bookmarked Services"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/changeLang"
+        android:title="Change Language"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/loginPage"
+        android:title="Login"
+        app:showAsAction="never"/>
+
+
+</menu>
