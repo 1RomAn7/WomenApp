@@ -63,6 +63,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_details);
 
@@ -78,13 +80,14 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceAge=findViewById(R.id.serviceAge);
         serviceInfo=findViewById(R.id.serviceInfo);
 
+
         Intent intent =getIntent();
 
         fab =findViewById(R.id.fab);
 
         serviceIdExtra=intent.getStringExtra(serviceIdExtraName);
 
-        if(!isBookmark()){
+        /*if(!isBookmark()){
 
             bookmark.setChecked(false);
 
@@ -92,13 +95,14 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
             bookmark.setChecked(true);
 
+        }*/
+
+        if(isBookmark()) {
+            boolean checked1 = PreferenceManager.getDefaultSharedPreferences(this)
+                    .getBoolean("checkBox1", false);
+            bookmark.setChecked(checked1);
+
         }
-
-        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean("checkBox1", false);
-        bookmark.setChecked(checked);
-        //accessing selected service Information
-
         SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
         String query = "SELECT "+serviceIdColumn+","+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+" FROM Services WHERE "+serviceIdColumn+"=";
@@ -132,6 +136,18 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceInfo.setText(String.format("\t\t\t\t\t%s", displayServiceInfo));
 
 
+        bookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean checked = ((CheckBox) view).isChecked();
+
+
+                    PreferenceManager.getDefaultSharedPreferences(ServiceDetailsActivity.this).edit()
+                            .putBoolean("checkBox1", checked).apply();
+
+
+            }
+        });
 
         bookmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
