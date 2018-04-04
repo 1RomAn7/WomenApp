@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -85,7 +84,19 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         serviceIdExtra=intent.getStringExtra(serviceIdExtraName);
 
+        if(!isBookmark()){
 
+            bookmark.setChecked(false);
+
+        }else {
+
+            bookmark.setChecked(true);
+
+        }
+
+        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBox1", false);
+        bookmark.setChecked(checked);
         //accessing selected service Information
 
         SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
@@ -127,6 +138,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(bookmark.isChecked())
                 {
+
                     checkBookmark=true;
                     SQLiteDatabase bookmarkDB = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
@@ -170,7 +182,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
             }
         });
 
-        getSavedCheckBoxValue();
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +210,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     }
 
-    private void getSavedCheckBoxValue() {
+    private Boolean isBookmark() {
 
         SQLiteDatabase bookmarkDB = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
@@ -208,18 +220,18 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         bookmarkDB.execSQL(query);
 
-        String select = "SELECT "+isCheckedColumn+" FROM Favorites WHERE "+serviceIdColumn+" = "+serviceId+"";
+        String select = "SELECT * FROM Favorites WHERE "+serviceIdColumn+" = "+serviceId+"";
 
-        Cursor cursor = bookmarkDB.rawQuery(query, null);
+        Cursor cursor = bookmarkDB.rawQuery(select, null);
 
-        while (cursor.moveToNext()) {
+        if(cursor.getCount()<=0){
 
-            checkBookmark=Boolean.parseBoolean(cursor.getString(0));
 
+            cursor.close();
+            return false;
         }
-
-        bookmark.setChecked(checkBookmark);
         cursor.close();
+        return true;
     }
 
 
