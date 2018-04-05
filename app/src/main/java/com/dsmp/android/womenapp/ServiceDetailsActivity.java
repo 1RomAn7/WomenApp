@@ -56,6 +56,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     boolean checkBookmark;
 
+    boolean checkboxState;
+
     public static  String serviceIdExtra="";
     public static  String serviceIdExtraName="com.dsmp.android.womenapp.serviceId";
     public static  String serviceNameExtra="com.dsmp.android.womenapp.serviceName";
@@ -87,22 +89,6 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         serviceIdExtra=intent.getStringExtra(serviceIdExtraName);
 
-        /*if(!isBookmark()){
-
-            bookmark.setChecked(false);
-
-        }else {
-
-            bookmark.setChecked(true);
-
-        }*/
-
-        if(isBookmark()) {
-            boolean checked1 = PreferenceManager.getDefaultSharedPreferences(this)
-                    .getBoolean("checkBox1", false);
-            bookmark.setChecked(checked1);
-
-        }
         SQLiteDatabase database = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
 
         String query = "SELECT "+serviceIdColumn+","+serviceNameColumn+","+serviceCasteColumn+","+serviceStateColumn+","+serviceInfoColumn+","+serviceAgeColumn+" FROM Services WHERE "+serviceIdColumn+"=";
@@ -136,18 +122,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         serviceInfo.setText(String.format("\t\t\t\t\t%s", displayServiceInfo));
 
 
-        bookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean checked = ((CheckBox) view).isChecked();
+        isBookmark();
 
-
-                    PreferenceManager.getDefaultSharedPreferences(ServiceDetailsActivity.this).edit()
-                            .putBoolean("checkBox1", checked).apply();
-
-
-            }
-        });
 
         bookmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -226,28 +202,34 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     }
 
-    private Boolean isBookmark() {
+    private void isBookmark() {
 
-        SQLiteDatabase bookmarkDB = openOrCreateDatabase("ServiceList",MODE_PRIVATE,null);
+        try {
+            SQLiteDatabase bookmarkDB = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
-        String query = "CREATE TABLE IF NOT EXISTS Favorites("+serviceIdColumn+" VARCHAR PRIMARY KEY ,"+serviceNameColumn+
-                " VARCHAR ,"+serviceStateColumn+" VARCHAR ,"+serviceCasteColumn+" VARCHAR ,"+serviceInfoColumn+" VARCHAR ,"
-                +serviceAgeColumn+" VARCHAR ,"+ isCheckedColumn +" VARCHAR)";
+            String query = "CREATE TABLE IF NOT EXISTS Favorites(" + serviceIdColumn + " VARCHAR PRIMARY KEY ," + serviceNameColumn +
+                    " VARCHAR ," + serviceStateColumn + " VARCHAR ," + serviceCasteColumn + " VARCHAR ," + serviceInfoColumn + " VARCHAR ,"
+                    + serviceAgeColumn + " VARCHAR ," + isCheckedColumn + " VARCHAR)";
 
-        bookmarkDB.execSQL(query);
+            bookmarkDB.execSQL(query);
 
-        String select = "SELECT * FROM Favorites WHERE "+serviceIdColumn+" = "+serviceId+"";
+            String select = "SELECT " + isCheckedColumn + " FROM Favorites WHERE " + serviceIdColumn + " = " + serviceId + "";
 
-        Cursor cursor = bookmarkDB.rawQuery(select, null);
+            Cursor cursor = bookmarkDB.rawQuery(select, null);
 
-        if(cursor.getCount()<=0){
+            if (cursor.getCount() <= 0) {
 
-
-            cursor.close();
-            return false;
+                bookmark.setChecked(false);
+                cursor.close();
+            } else {
+                bookmark.setChecked(true);
+                cursor.close();
+            }
         }
-        cursor.close();
-        return true;
+        catch (Exception e)
+        {
+
+        }
     }
 
 
