@@ -165,8 +165,10 @@ public class MainActivity extends AppCompatActivity{
 
         } else if(id==R.id.changeLang){
 
+
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
+            Toast.makeText(this,R.string.MainActivityToast,Toast.LENGTH_SHORT).show();
             startActivity(intent);
 
         }else if(id==R.id.loginPage) {

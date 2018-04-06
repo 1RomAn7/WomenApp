@@ -48,7 +48,7 @@ public class BookmarkActivity extends AppCompatActivity {
 
         serviceNameList= new ArrayList<>();
 
-        getSupportActionBar().setTitle("Bookmark");
+        getSupportActionBar().setTitle(R.string.bookmarkActivity);
 
         serviceNameList.clear();
 
@@ -102,7 +102,7 @@ public class BookmarkActivity extends AppCompatActivity {
 
         if(serviceNameList.isEmpty()){
 
-            Toast.makeText(this,"No Bookmarks Present",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.bookmarkActivityToast,Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -149,7 +149,7 @@ public class BookmarkActivity extends AppCompatActivity {
 
         if(serviceNameList.isEmpty()){
 
-            Toast.makeText(this,"No Bookmarks Present",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.bookmarkActivityToast,Toast.LENGTH_SHORT).show();
 
         }
 

@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
-                android:text="State"
+                android:text="@string/state"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium"
                 android:textStyle="bold"
                 tools:ignore="NewApi" />
@@ -86,7 +86,7 @@
                    android:layout_marginLeft="20dp"
                    android:layout_marginStart="20dp"
 
-                   android:text="Caste"
+                   android:text="@string/caste"
                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
                    android:textStyle="bold"
                    tools:ignore="NewApi" />

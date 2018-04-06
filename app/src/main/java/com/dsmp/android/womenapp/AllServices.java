@@ -56,7 +56,7 @@ public class AllServices extends AppCompatActivity  {
 
 
 
-        getSupportActionBar().setTitle("All Services");
+        getSupportActionBar().setTitle(R.string.all_services);
 
 
 

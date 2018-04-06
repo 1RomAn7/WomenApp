@@ -33,7 +33,7 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
 
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setTitle("Advance Search");
+        getSupportActionBar().setTitle(R.string.advance_search);
 
         setContentView(R.layout.activity_advance_search);
 
@@ -99,14 +99,24 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
         Intent  intent=new Intent(this,AdvanceSearchResultActivity.class);
 
         String age= etxAge.getText().toString();
-        int ageInt= Integer.parseInt(age);
+          int ageInt;
+        if(age.equals(""))
+        {
+
+            ageInt=0;
+
+        }else
+        {
+           ageInt= Integer.parseInt(age);
+        }
+
        // String  caste =etxCaste.getText().toString();
 
        // String state =etxState.getText().toString();
 
         if(ageInt>=100){
 
-            Toast.makeText(this,"Enter Valid Age",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.advanceSearchToast,Toast.LENGTH_SHORT).show();
 
         }
         else {

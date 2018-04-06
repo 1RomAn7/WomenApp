@@ -57,7 +57,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advance_search_result);
-        getSupportActionBar().setTitle("Advance Search Result");
+        getSupportActionBar().setTitle(R.string.AdvanceSearchResult);
 
 
         listView=findViewById(R.id.list_view);
@@ -372,7 +372,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
                     ageExtra.equals("8")||ageExtra.equals("9")){
 
 
-                Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
+                Toast.makeText(this ,R.string.advanceSearchResultToast,Toast.LENGTH_SHORT ).show();
 
 
             }else {
@@ -397,7 +397,7 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
 
                 if (searchResult.isEmpty()) {
 
-                    Toast.makeText(this, "No service Found According to Search Constraint Search Again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.advanceSearchResultToast, Toast.LENGTH_SHORT).show();
 
                 }
 

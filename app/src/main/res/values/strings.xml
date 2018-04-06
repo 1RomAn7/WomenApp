@@ -10,19 +10,6 @@
     <string name="search">Search</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-
 
     <!--String Related to LoginActivity -->
     <string name="new_user_sign_up">New User? Sign UP</string>
@@ -60,7 +47,32 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="bookmarked_services">Bookmarked Services</string>
+    <string name="change_language">Change Language</string>
+    <string name="name">Name :</string>
+    <string name="stateDetails">State :</string>
+    <string name="casteDetails">Caste :</string>
+    <string name="ageDetails">Age :</string>
+    <string name="information">Information :</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="AdvanceSearchResult">Advance Search Result</string>
+    <string name="bookmarkActivity">Bookmark</string>
+    <string name="AddActivity">Add Service</string>
+    <string name="ServiceDetailsActivity">Service Details</string>
 
+    //Toast Strings
+    <string name="addserviceToast">Please Enter all Fields</string>
+    <string name="addserviceToast1">Service Added</string>
+    <string name="addserviceToast2">Service Addition Failed!!!!</string>
+    <string name="advanceSearchToast">Enter Valid Age</string>
+    <string name="advanceSearchResultToast">No service Found According to Search Constraint Search Again</string>
+    <string name="bookmarkActivityToast">No Bookmarks Present</string>
+    <string name="LoginActivityToast">Enter Email And Password</string>
+    <string name="LoginActivityToast1">Login Successful</string>
+    <string name="LoginActivityToast2">Login Failed</string>
+    <string name="MainActivityToast">Caution : This Will also Change Device Language</string>
+    <string name="ServiceDetailsActivityToast">Added to Bookmark</string>
+    <string name="ServiceDetailsActivityToast2">Removed From Bookmark</string>
 
     //id visible
 

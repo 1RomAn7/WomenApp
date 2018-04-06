@@ -28,7 +28,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_services);
-        getSupportActionBar().setTitle("Add Service");
+        getSupportActionBar().setTitle(R.string.AddActivity);
 
 
 
@@ -59,7 +59,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         if(serviceName.isEmpty() || serviceInfo.isEmpty() || serviceState.isEmpty() || serviceCaste.isEmpty() || minAge.isEmpty()){
 
 
-            Toast.makeText(this,"Please Enter all Fields",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,R.string.addserviceToast,Toast.LENGTH_LONG).show();
 
 
         }else{
@@ -85,7 +85,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
         if(task.isSuccessful()) {
 
 
-            Toast.makeText(this, "Service Added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.addserviceToast1, Toast.LENGTH_LONG).show();
 
             etxServiceName.setText("");
             etxMinAge.setText("");
@@ -96,7 +96,7 @@ public class AddServices extends AppCompatActivity implements View.OnClickListen
 
         }else {
 
-            Toast.makeText(this, " Service Addition Failed!!!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.addserviceToast2, Toast.LENGTH_LONG).show();
 
         }
     }

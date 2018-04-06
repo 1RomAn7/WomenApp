@@ -73,7 +73,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         fullStar = this.getResources().getDrawable(R.drawable.ic_star_full_24dp);
         borderStar = this.getResources().getDrawable(R.drawable.ic_star_border_black_24dp);
 
-        getSupportActionBar().setTitle("Service Details");
+        getSupportActionBar().setTitle(R.string.ServiceDetailsActivity);
 
         bookmark =findViewById(R.id.bookMark);
         serviceName=findViewById(R.id.serviceName);
@@ -148,7 +148,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
                     bookmarkDB.execSQL(insert);
 
-                    Toast.makeText(ServiceDetailsActivity.this, "Added to Bookmark", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ServiceDetailsActivity.this, R.string.ServiceDetailsActivityToast, Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -166,7 +166,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
                     bookmarkDB.execSQL(delete);
 
-                    Toast.makeText(ServiceDetailsActivity.this, "Removed From Bookmark", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ServiceDetailsActivity.this, R.string.ServiceDetailsActivityToast2, Toast.LENGTH_SHORT).show();
 
 
 

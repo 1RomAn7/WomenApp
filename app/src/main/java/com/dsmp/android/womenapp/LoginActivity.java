@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setTitle("Login");
+        getSupportActionBar().setTitle(R.string.login);
 
 
         txtLogin= findViewById(R.id.txtLogin);
@@ -61,12 +61,12 @@ public class LoginActivity extends AppCompatActivity{
 
         if(Email.isEmpty() || password.isEmpty()){
 
-            Toast.makeText(this,"Enter Email And Password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,R.string.LoginActivityToast,Toast.LENGTH_LONG).show();
 
 
         }else if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
 
-            Toast.makeText(this, "Enter Valid Email Address", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.LoginActivityToast, Toast.LENGTH_LONG).show();
 
 
         }else{
@@ -86,10 +86,10 @@ public class LoginActivity extends AppCompatActivity{
                         Intent intent = new Intent(LoginActivity.this, AddServices.class);
                         startActivity(intent);
 
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.LoginActivityToast1, Toast.LENGTH_SHORT).show();
 
                     }else{
-                        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.LoginActivityToast2, Toast.LENGTH_SHORT).show();
                     }
 
                 }

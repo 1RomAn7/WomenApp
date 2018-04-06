@@ -9,5 +9,45 @@
     <string name="state">राज्य</string>
     <string name="women_services">महिला सेवाएं</string>
     <string name="search">खोज</string>
+    <string name="check_all_services">" सभी सेवाओं की जांच"</string>
+    <string name="search_services">खोज सेवाएं</string>
+    <string name="action_settings">सेटिंग्स</string>
+    <string name="bookmarked_services">संग्रहीत सेवाएं</string>
+    <string name="change_language">भाषा बदलो</string>
+    <string name="Login_caste">जाति</string>
+    <string name="Login_state">" राज्य"</string>
+    <string name="name">नाम :</string>
+    <string name="stateDetails">राज्य :</string>
+    <string name="casteDetails">जाति :</string>
+    <string name="ageDetails">आयु :</string>
+    <string name="information">जानकारी :</string>
+    <string name="bookmark">संग्रहीत करें</string>
+    <string name="Login_textView">लॉग इन</string>
+    <string name="email">ईमेल</string>
+    <string name="password">" पासवर्ड"</string>
+    <string name="login">लॉग इन</string>
+    <string name="add_service_information">सेवा जानकारी जोड़ें</string>
+    <string name="service_name">"सेवा का नाम "</string>
+    <string name="service_info">"सेवा जानकारी "</string>
+    <string name="minimun_age">न्यूनतम आयु</string>
+    <string name="add_service">सेवा जोड़ें</string>
+    <string name="service_name1">"सेवा का नाम "</string>
+    <string name="AdvanceSearchResult">उन्नत खोज परिणाम</string>
+    <string name="bookmarkActivity">संग्रहीत सेवा</string>
+
+    <string name="AddActivity">" सेवा जोड़ें"</string>
+    <string name="addserviceToast">कृपया सभी फ़ील्ड दर्ज करें</string>
+    <string name="addserviceToast1">"सेवा संग्रहीत "</string>
+    <string name="addserviceToast2">सेवा जोड़ना विफल रहा !!!!</string>
+    <string name="advanceSearchToast">वैध आयु दर्ज करें</string>
+    <string name="advanceSearchResultToast">" कोई सेवा नहीं मिली फिर से खोजो"</string>
+    <string name="bookmarkActivityToast">"कोई बुकमार्क्स मौजूद नहीं है "</string>
+    <string name="LoginActivityToast">" ईमेल और पासवर्ड दर्ज करें"</string>
+    <string name="LoginActivityToast1">सफलतापूर्ण प्रवेश</string>
+    <string name="LoginActivityToast2">लॉगिन विफल</string>
+    <string name="MainActivityToast">" सावधानी: यह डिवाइस भाषा को भी बदलेगा"</string>
+    <string name="ServiceDetailsActivityToast">" बुकमार्क में जोड़ा गया"</string>
+    <string name="ServiceDetailsActivityToast2">" बुकमार्क से हटाया गया"</string>
+    <string name="ServiceDetailsActivity">सेवा जानकारी</string>
 
 </resources>
