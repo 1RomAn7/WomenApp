@@ -42,12 +42,15 @@ public class BookmarkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bookmark);
 
 
+
+
         bookmarkList=findViewById(R.id.listViewBookmark);
 
         serviceNameList= new ArrayList<>();
 
         getSupportActionBar().setTitle("Bookmark");
 
+        serviceNameList.clear();
 
         SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
 
@@ -118,6 +121,37 @@ public class BookmarkActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+
+        String query = "SELECT * FROM  Favorites ORDER BY "+serviceNameColumn+" ASC";
+
+        String serviceName;
+
+
+        Cursor cursor = database.rawQuery(query, null);
+        serviceNameList.clear();
+        while (cursor.moveToNext()) {
+
+            serviceName = cursor.getString(1);
+            serviceNameList.add(serviceName);
+
+        }
+
+        cursor.close();
+        initialize();
+
+        if(serviceNameList.isEmpty()){
+
+            Toast.makeText(this,"No Bookmarks Present",Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
 }
