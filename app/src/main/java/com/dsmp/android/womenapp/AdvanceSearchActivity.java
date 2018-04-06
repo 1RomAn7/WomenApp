@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 /**
@@ -98,18 +99,24 @@ public class AdvanceSearchActivity extends AppCompatActivity implements View.OnC
         Intent  intent=new Intent(this,AdvanceSearchResultActivity.class);
 
         String age= etxAge.getText().toString();
-
+        int ageInt= Integer.parseInt(age);
        // String  caste =etxCaste.getText().toString();
 
        // String state =etxState.getText().toString();
 
-        intent.putExtra(AdvanceSearchResultActivity.AGE,age);
+        if(ageInt>=100){
 
-        intent.putExtra(AdvanceSearchResultActivity.CASTE,casteSpinnerExtra);
+            Toast.makeText(this,"Enter Valid Age",Toast.LENGTH_SHORT).show();
 
-        intent.putExtra(AdvanceSearchResultActivity.STATE,stateSpinnerExtra);
+        }
+        else {
+            intent.putExtra(AdvanceSearchResultActivity.AGE, age);
 
-        startActivity(intent);
+            intent.putExtra(AdvanceSearchResultActivity.CASTE, casteSpinnerExtra);
 
+            intent.putExtra(AdvanceSearchResultActivity.STATE, stateSpinnerExtra);
+
+            startActivity(intent);
+        }
     }
 }

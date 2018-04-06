@@ -368,30 +368,40 @@ public class AdvanceSearchResultActivity extends AppCompatActivity {
         }*/
         else{
 
-            SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+            if(ageExtra.equals("2")||ageExtra.equals("3")||ageExtra.equals("4")||ageExtra.equals("5")||ageExtra.equals("6")||ageExtra.equals("7")||
+                    ageExtra.equals("8")||ageExtra.equals("9")){
 
-            String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
-            query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" AND " + serviceAgeColumn + "<=\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
-
-
-            Cursor cursor = database.rawQuery(query, null);
-
-            while (cursor.moveToNext()) {
-
-                displayServiceName = cursor.getString(0);
-
-
-                searchResult.add(displayServiceName);
-
-            }
-
-            if (searchResult.isEmpty()){
 
                 Toast.makeText(this ,"No service Found According to Search Constraint Search Again",Toast.LENGTH_SHORT ).show();
 
-            }
-            cursor.close();
 
+            }else {
+                SQLiteDatabase database = openOrCreateDatabase("ServiceList", MODE_PRIVATE, null);
+
+                String query = "SELECT " + serviceNameColumn + " FROM Services WHERE " + serviceCasteColumn + "=";
+                query += "\"" + casteExtra + "\" AND " + serviceStateColumn + "=\"" + stateExtra + "\" AND " + serviceAgeColumn + "<=\"" + ageExtra + "\" ORDER BY " + serviceNameColumn + " ASC";
+
+
+                Cursor cursor = database.rawQuery(query, null);
+
+                while (cursor.moveToNext()) {
+
+                    displayServiceName = cursor.getString(0);
+
+
+                    searchResult.add(displayServiceName);
+
+                }
+
+                cursor.close();
+
+                if (searchResult.isEmpty()) {
+
+                    Toast.makeText(this, "No service Found According to Search Constraint Search Again", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
 
 
 
