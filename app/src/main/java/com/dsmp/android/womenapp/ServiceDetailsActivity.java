@@ -31,15 +31,9 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     String isCheckedColumn ="isCheckedColumn";
 
-    String checkBoxValue;
-
-    Button fav;
-
     String displayServiceName,displayServiceInfo,displayServiceAge,displayServiceState,displayServiceCaste;
 
     String serviceId;
-
-    Menu menu;
 
     String serviceNameColumn="serviceName"
             ,serviceInfoColumn="serviceInfo"

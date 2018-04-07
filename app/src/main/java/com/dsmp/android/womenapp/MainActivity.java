@@ -2,6 +2,7 @@
 
 package com.dsmp.android.womenapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -33,14 +34,13 @@ public class MainActivity extends AppCompatActivity{
     CardView allService, advanceSearch;
 
 
+
     String serviceNameColumn="serviceName"
             ,serviceInfoColumn="serviceInfo"
             ,serviceAgeColumn="serviceAge"
             ,serviceIdColumn="serviceId"
             ,serviceStateColumn="serviceState"
             ,serviceCasteColumn="serviceCaste";
-
-
 
 
     DatabaseReference sRootRef = FirebaseDatabase.getInstance().getReference();
@@ -65,13 +65,19 @@ public class MainActivity extends AppCompatActivity{
         serviceList = new ArrayList<>();
 
 
+
        allService.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
 
+
+
+
                Intent intent =new Intent(MainActivity.this,AllServices.class);
 
                startActivity(intent);
+
+
 
            }
        });
@@ -95,6 +101,7 @@ public class MainActivity extends AppCompatActivity{
 
     protected void onStart() {
         super.onStart();
+
         final ValueEventListener valueEventListener = sChildRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -141,6 +148,7 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
+
 
     }
 
